@@ -1,0 +1,71 @@
+/* Parent container to prevent clipping */
+.group {
+  perspective: 1000px;
+  overflow: visible;
+  position: relative;
+  /* Required for z-index handling */
+}
+
+/* Scaling and overlay during hover */
+.group:hover .card {
+  transform: scale(1.4);
+  /* Increase size */
+  z-index: 50;
+  /* Ensure it's above other elements */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  /* Add shadow for depth */
+}
+
+/* Smooth scaling effect */
+.card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transform-origin: center center;
+  /* Scale from the center */
+}
+
+/* Overlay content (hidden by default) */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent background */
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  /* Offset for animation */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 60;
+  /* Ensure it appears above the card */
+  color: white;
+  text-align: center;
+}
+
+/* Show overlay on hover */
+.group:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+  /* Bring to position */
+}
+
+/* Play button */
+.play-button {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.play-button:hover {
+  background: #e50914;
+  /* Netflix red */
+  color: white;
+}
