@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "./hooks/useAuth.hooks";
-import LogoAnimation from "./presentation/components/animation/LogoAnimation";
+import { useAuth } from "./shared/hooks/useAuth";
+import LogoAnimation from "./modules/ui/components/animation/LogoAnimation";
 import { useNavigate } from "react-router-dom";
 
 function App() {

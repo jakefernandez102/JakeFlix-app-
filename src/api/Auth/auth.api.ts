@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { authAxiosClient } from "../../config/axios-client";
-import { User } from "../../types";
+import { authAxiosClient } from "../../shared/config/axios-client";
+import { User } from "../../shared/types";
 export type LoginCredentials = Record<string, string>;
 
 export const login = async (loginData: LoginCredentials): Promise<User[]> => {
