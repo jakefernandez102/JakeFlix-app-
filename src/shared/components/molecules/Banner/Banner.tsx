@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Movie } from "../../../../types";
+import { Movie } from "../../../types";
 import "./Banner.css";
-import { MovieList } from "../MovieList";
+import { MovieList } from "../../../../modules/ui/components/MovieList/MovieList";
 import Skeleton from "react-loading-skeleton";
 export interface BannerProps {
   movies: Movie[] | undefined;
@@ -71,7 +71,7 @@ export const Banner = ({ movies }: BannerProps) => {
         </div>
       </div>
       <div className="no-scrollbar flex h-[500px] w-full items-end overflow-x-scroll overflow-y-visible">
-        <MovieList movies={movies} />
+        <MovieList movies={movies} isTopTen={false} />
       </div>
       <span className="absolute right-0 bottom-0 left-0 h-[400px] bg-linear-to-t from-[#141414] to-transparent"></span>
     </div>
