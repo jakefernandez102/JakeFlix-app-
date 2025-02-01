@@ -16,7 +16,6 @@ export const Button = ({
   icon,
   iconPosition,
 }: ButtonI) => {
-  console.log(iconPosition);
   return (
     <button onClick={onClick} className={className} type={type}>
       {!label && icon && <span className={"self-center"}>{icon}</span>}
