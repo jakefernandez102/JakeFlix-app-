@@ -1,7 +1,7 @@
 import { Button, Footer, Form, MovieList } from "../../../../shared/components";
 import { useEffect, useRef, useState } from "react";
-import { ToastContainer } from "react-toastify";
-import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import { Popcorn } from "../../Icons/Popcorn";
 import { useQuery } from "@tanstack/react-query";
 import { getTopRatedMovies } from "../../../../api/movie/movie";
@@ -12,6 +12,7 @@ import { Download } from "../../Icons/Download";
 import { Enjoy } from "../../Icons/Enjoy";
 import { Profiles } from "../../Icons/Profiles";
 import { Advertisement } from "../../components/Advertisement";
+import { register } from "../../../../api/auth/auth";
 
 const ADVERTISEMENT = [
   {
@@ -42,7 +43,7 @@ const ADVERTISEMENT = [
 
 export const Register = () => {
   const [top10Movies, setTop10Movies] = useState<Movie[]>([]);
-
+  const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const { data: topRatedMovies, isLoading } = useQuery({
@@ -50,21 +51,42 @@ export const Register = () => {
     queryFn: getTopRatedMovies,
   });
 
-  const handleRegister = (email: Record<string, string>) => {
-    console.log("on register", email);
+  const handleRegister = async ({ email }: Record<string, string>) => {
+    try {
+      console.log(email);
+      const data = await register({
+        email,
+        password: "Password",
+        name: email.split("@")[0],
+        authenticated: false,
+        profiles: [],
+      });
+      toast.success("User created successfully your password is: Password", {
+        position: "top-center",
+      });
+      if (!!data && audioRef.current) {
+        audioRef.current.play();
+      }
+      setTimeout(() => {
+        navigate("/auth/login");
+      }, 3500);
+    } catch (error) {
+      console.log(error);
+      toast.error(`${error}`, {
+        position: "top-center",
+      });
+    }
   };
 
   useEffect(() => {
     if (isLoading) return;
     if (topRatedMovies && topRatedMovies.results) {
-      console.log(topRatedMovies.results);
       sortMoviesByPopularity(topRatedMovies.results);
     }
   }, [isLoading]);
 
   const sortMoviesByPopularity = (movies: Movie[]) => {
     const sortedMovies = movies.sort((a, b) => b.popularity - a.popularity);
-    console.log({ sortedMovies });
     setTop10Movies(sortedMovies.slice(0, 10));
   };
 
@@ -177,6 +199,7 @@ export const Register = () => {
         </div>
       </section>
       <Footer />
+      <ToastContainer />
     </>
   );
 };
