@@ -1,18 +1,23 @@
-import { Button, Footer, Form, MovieList } from "../../../../shared/components";
+import {
+  Button,
+  Footer,
+  Form,
+  MovieList,
+} from "../../../../../shared/components";
 import { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { Popcorn } from "../../Icons/Popcorn";
 import { useQuery } from "@tanstack/react-query";
-import { getTopRatedMovies } from "../../../../api/movie/movie";
-import { Movie } from "../../../../shared/types";
-import { MovieListTemplate } from "../../../../shared/template/MovieListTemplate";
+import { getTopRatedMovies } from "../../../../../api/movie/movie";
+import { Movie } from "../../../../../shared/types";
+import { MovieListTemplate } from "../../../../../shared/template/MovieListTemplate";
 import { Tv } from "../../Icons";
 import { Download } from "../../Icons/Download";
 import { Enjoy } from "../../Icons/Enjoy";
 import { Profiles } from "../../Icons/Profiles";
 import { Advertisement } from "../../components/Advertisement/Advertisement";
-import { register } from "../../../../api/auth/auth";
+import { register } from "../../../../../api/auth/auth";
 
 const ADVERTISEMENT = [
   {

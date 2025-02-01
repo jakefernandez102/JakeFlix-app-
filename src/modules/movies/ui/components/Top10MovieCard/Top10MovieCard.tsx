@@ -1,4 +1,4 @@
-import { Movie } from "../../../../shared/types";
+import { Movie } from "../../../../../shared/types";
 
 export interface Top10MovieCardProps {
   movie: Movie;

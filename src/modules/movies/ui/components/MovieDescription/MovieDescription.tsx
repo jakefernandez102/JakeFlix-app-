@@ -1,5 +1,5 @@
 import Skeleton from "react-loading-skeleton";
-import { Cast } from "../../../../shared/types/cast";
+import { Cast } from "../../../../../shared/types/cast";
 import { FaPlay, FaThumbsUp } from "react-icons/fa6";
 
 export interface MovieDescriptionProps {

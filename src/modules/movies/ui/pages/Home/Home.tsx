@@ -1,14 +1,14 @@
-import { Banner } from "../../../../shared/components";
+import { Banner } from "../../../../../shared/components";
 import { MovieList } from "../../components/MovieList/MovieList";
 import { useQuery } from "@tanstack/react-query";
 import {
   createMoviesByGenre,
   getMovieCast,
   getPlayingNowMovies,
-} from "../../../../api/movie/movie";
-import { HomeTemplate } from "../../../../shared/template/HomeTemplate";
-import { Movie, Movies } from "../../../../shared/types";
-import { MovieListTemplate } from "../../../../shared/template/MovieListTemplate";
+} from "../../../../../api/movie/movie";
+import { HomeTemplate } from "../../../../../shared/template/HomeTemplate";
+import { Movie, Movies } from "../../../../../shared/types";
+import { MovieListTemplate } from "../../../../../shared/template/MovieListTemplate";
 import { MovieDescription } from "../../components/MovieDescription/MovieDescription";
 import { useState } from "react";
 
