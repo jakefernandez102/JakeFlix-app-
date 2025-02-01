@@ -1,5 +1,5 @@
 import { FaCirclePlay, FaCirclePlus, FaThumbsUp } from "react-icons/fa6";
-import { Movie } from "../../../../shared/types";
+import { Movie } from "../../../../../shared/types";
 import Skeleton from "react-loading-skeleton";
 
 export type MovieProps = {

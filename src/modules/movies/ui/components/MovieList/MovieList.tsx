@@ -1,5 +1,5 @@
-import { Carousel } from "../../../../shared/components/molecules/Carousel/Carousel";
-import { Movie } from "../../../../shared/types";
+import { Carousel } from "../../../../../shared/components/molecules/Carousel/Carousel";
+import { Movie } from "../../../../../shared/types";
 
 export interface MovieListProps {
   movies: Movie[] | undefined;
