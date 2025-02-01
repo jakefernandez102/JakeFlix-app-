@@ -1,6 +1,6 @@
-import { MovieCard } from "../../../../modules/ui/components/MovieCard/MovieCard";
+import { MovieCard } from "../../../../modules/movies/ui/components/MovieCard/MovieCard";
 import { Movie } from "../../../types";
-import { Top10MovieCard } from "../../../../modules/ui";
+import { Top10MovieCard } from "../../../../modules/movies/ui";
 
 export type CardType = "top-10" | "default";
 export interface CarouselProps {
