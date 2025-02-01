@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { AuthContextType, AuthProviderProps, User } from "../types";
-import { updateUserInfo } from "../../api";
+import { updateUserInfo } from "../../api/auth/auth";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
