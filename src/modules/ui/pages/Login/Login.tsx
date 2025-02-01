@@ -5,7 +5,7 @@ import { useAuth } from "../../../../shared/hooks/useAuth";
 import { User } from "../../../../shared/types";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../../api/auth/auth.api";
+import { login } from "../../../../api";
 
 const Login = () => {
   const { setUser } = useAuth();
@@ -75,8 +75,8 @@ const Login = () => {
                 },
               ]}
               initialValues={{
-                email: "jakeflix@correo.com",
-                password: "Password",
+                email: "",
+                password: "",
               }}
               mainButtontext="Login"
               hasSecondaryButton={true}
