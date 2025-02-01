@@ -11,7 +11,7 @@ import { Tv } from "../../Icons";
 import { Download } from "../../Icons/Download";
 import { Enjoy } from "../../Icons/Enjoy";
 import { Profiles } from "../../Icons/Profiles";
-import { Advertisement } from "../../components/Advertisement";
+import { Advertisement } from "../../components/Advertisement/Advertisement";
 import { register } from "../../../../api/auth/auth";
 
 const ADVERTISEMENT = [
