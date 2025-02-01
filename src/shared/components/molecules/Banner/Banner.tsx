@@ -54,7 +54,7 @@ export const Banner = ({ movies }: BannerProps) => {
             className="w-[2rem] rotate-30"
           />
           {movies.length && (
-            <div className="flex max-w-[35%] flex-col gap-2">
+            <div className="flex w-full flex-col gap-2 lg:max-w-[35%]">
               <p className="text-shadow text-start text-4xl font-bold">
                 {backgroundImage.title || (
                   <Skeleton className={"w-full"} count={1} />
