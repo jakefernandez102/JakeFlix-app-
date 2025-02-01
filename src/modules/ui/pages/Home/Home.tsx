@@ -1,37 +1,19 @@
+import { useState } from "react";
+
 import { Banner } from "../../../../shared/components";
 import { MovieList } from "../../components/MovieList/MovieList";
-import { useQuery } from "@tanstack/react-query";
-import {
-  createMoviesByGenre,
-  getMovieCast,
-  getPlayingNowMovies,
-} from "../../../../api/movie/movie";
 import { HomeTemplate } from "../../../../shared/template/HomeTemplate";
-import { Movie, Movies } from "../../../../shared/types";
+import { Movie } from "../../../../shared/types";
 import { MovieListTemplate } from "../../../../shared/template/MovieListTemplate";
 import { MovieDescription } from "../../components/MovieDescription/MovieDescription";
-import { useState } from "react";
+import { useMovie } from "../../../../shared/hooks/useMovie";
 
 const Home = () => {
   const [openMovieDescription, setOpenMovieDescription] = useState(false);
-  const [movieID, setMovieID] = useState<number | null>(null);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  const { data: moviesPlayingNow, isLoading } = useQuery<Movies | undefined>({
-    queryKey: ["moviesPlayingNow"],
-    queryFn: getPlayingNowMovies,
-  });
-
-  const { data: moviesByGenre, isLoading: isMoviesByGenreLoading } = useQuery({
-    queryKey: ["genres"],
-    queryFn: createMoviesByGenre,
-  });
-
-  const { data: cast } = useQuery({
-    queryKey: ["cast", movieID], // Unique query key for each movie
-    queryFn: () => getMovieCast(movieID!), // Fetch cast for selected movie
-    enabled: !!movieID, // Only fetch when movieID is set
-  });
+  const { castQuery, moviesByGenreQuery, moviesPlayingNowQuery, setMovieID } =
+    useMovie();
 
   const handleMovieSelect = (id: number, movie: Movie) => {
     console.log("Movie selected", id);
@@ -41,14 +23,18 @@ const Home = () => {
     setOpenMovieDescription(true);
   };
 
-  if (isLoading) return <HomeTemplate />;
+  if (moviesPlayingNowQuery.isLoading) return <HomeTemplate />;
   return (
     <main>
-      {!isLoading && <Banner movies={moviesPlayingNow?.results} />}
-      {isMoviesByGenreLoading && <MovieListTemplate />}
-      {!isMoviesByGenreLoading &&
-        moviesByGenre &&
-        moviesByGenre.map((genre) => {
+      {!moviesPlayingNowQuery.isLoading && (
+        <Banner movies={moviesPlayingNowQuery.data?.results} />
+      )}
+
+      {moviesByGenreQuery.isLoading && <MovieListTemplate />}
+
+      {!moviesByGenreQuery.isLoading &&
+        moviesByGenreQuery.data &&
+        moviesByGenreQuery.data.map((genre) => {
           return (
             <MovieList
               genre={genre.genre}
@@ -61,7 +47,7 @@ const Home = () => {
 
       {selectedMovie && (
         <MovieDescription
-          cast={cast}
+          cast={castQuery.data}
           open={openMovieDescription}
           setOpen={setOpenMovieDescription}
           releaseDate={new Date(selectedMovie?.release_date)
