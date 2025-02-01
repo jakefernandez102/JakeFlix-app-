@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Download = () => {
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
