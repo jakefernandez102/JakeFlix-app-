@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
-    <div className="flex w-full flex-col items-center gap-2 bg-black px-[15rem] py-10 text-zinc-500">
+    <div className="flex w-full flex-col items-center gap-2 bg-black px-10 py-10 text-zinc-500 xl:px-[15rem]">
       <div className="flex w-full gap-5 text-2xl">
         <a
           href="https://github.com/jakefernandez102"
