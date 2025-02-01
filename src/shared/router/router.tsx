@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import App from "../../App";
-import Login from "../../modules/ui/pages/Login/Login";
-import Home from "../../modules/ui/pages/Home/Home";
+import Login from "../../modules/movies/ui/pages/Login/Login";
+import Home from "../../modules/movies/ui/pages/Home/Home";
 import { useAuth } from "../hooks/useAuth";
 import { HeaderLayout } from "../layouts/HeaderLayout";
-import { Register } from "../../modules/ui/pages/Register/Register";
-import { ProfileSelector } from "../../modules/ui";
+import { Register } from "../../modules/movies/ui/pages/Register/Register";
+import { ProfileSelector } from "../../modules/movies/ui";
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const { user } = useAuth();

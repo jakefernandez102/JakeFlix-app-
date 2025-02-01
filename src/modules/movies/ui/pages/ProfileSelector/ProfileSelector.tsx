@@ -3,9 +3,9 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { UserProfile } from "../../../../shared/types";
-import { Button, Card, Modal } from "../../../../shared/components";
-import { useAuth } from "../../../../shared/hooks/useAuth";
+import { UserProfile } from "../../../../../shared/types";
+import { Button, Card, Modal } from "../../../../../shared/components";
+import { useAuth } from "../../../../../shared/hooks/useAuth";
 
 export const ProfileSelector = () => {
   const { user, updateDBUser, signOut } = useAuth();

@@ -1,11 +1,11 @@
-import { Form } from "../../../../shared/components/molecules/Form/Form";
+import { Form } from "../../../../../shared/components/molecules/Form/Form";
 import { toast, ToastContainer } from "react-toastify";
 import { FaEye } from "react-icons/fa6";
-import { useAuth } from "../../../../shared/hooks/useAuth";
-import { User } from "../../../../shared/types";
+import { useAuth } from "../../../../../shared/hooks/useAuth";
+import { User } from "../../../../../shared/types";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../../../api";
+import { login } from "../../../../../api";
 
 const Login = () => {
   const { setUser } = useAuth();

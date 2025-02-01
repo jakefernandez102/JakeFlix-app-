@@ -4,6 +4,6 @@ export * from "./Form/Form";
 export * from "./Header/Header";
 export * from "./Modal/Modal";
 export * from "./Nav/Nav";
-export * from "../../../modules/ui/components/MovieCard/MovieCard";
-export * from "../../../modules/ui/components/MovieList/MovieList";
+export * from "../../../modules/movies/ui/components/MovieCard/MovieCard";
+export * from "../../../modules/movies/ui/components/MovieList/MovieList";
 export * from "./Carousel/Carousel";
