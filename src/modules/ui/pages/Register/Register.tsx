@@ -109,13 +109,13 @@ export const Register = () => {
           <div className="absolute inset-0">
             <div className="flex h-full w-full flex-col items-center justify-center">
               <div className="flex h-[70%] w-[90%] flex-col items-center justify-center gap-10 px-10 py-10 text-white sm:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[50%]">
-                <h1 className="self-baseline text-center text-6xl font-black">
+                <h1 className="self-baseline text-center text-xl font-black md:text-6xl">
                   Unlimited movies and series and much more!
                 </h1>
-                <p className="text-center text-3xl font-bold">
+                <p className="text-center text-lg font-bold md:text-3xl">
                   Starting at $7.99. Cancel anytime.
                 </p>
-                <p className="text-center text-2xl">
+                <p className="text-md text-center md:text-2xl">
                   Want to watch Jakeflix now? Enter your email to create one or
                   restart your Jakeflix membership.
                 </p>
@@ -149,15 +149,17 @@ export const Register = () => {
           </div>
         </div>
       </div>
-      <section className="flex h-full w-full justify-center bg-black text-white">
-        <div className="flex w-full justify-center px-10 transition duration-300 hover:translate-y-3 hover:scale-105">
-          <Popcorn />
-          <div className="flex h-[80px] w-[70%] items-center justify-between rounded-lg bg-linear-to-br from-[#1C1126] to-[#111330] px-10 transition duration-300 hover:bg-linear-to-r hover:from-[#361853] hover:to-[#121441]">
+      <section className="flex h-full w-full flex-col justify-center bg-black text-white">
+        <div className="flex w-full flex-col items-center justify-center px-10 transition duration-300 hover:translate-y-3 hover:scale-105 md:flex-row">
+          <div className="self-center">
+            <Popcorn />
+          </div>
+          <div className="flex h-[80px] w-full items-center justify-between rounded-lg bg-linear-to-br from-[#1C1126] to-[#111330] px-10 transition duration-300 hover:bg-linear-to-r hover:from-[#361853] hover:to-[#121441] sm:w-[70%]">
             <div className={"flex flex-col"}>
-              <p className="text-xl">
+              <p className="text-sm lg:text-xl">
                 Everything you love on Jakeflix for just $7.99.
               </p>
-              <p className="text-lg">
+              <p className="text-xs lg:text-lg">
                 Take advantage of our most affordable option, the ad-supported
                 plan.
               </p>
@@ -176,7 +178,7 @@ export const Register = () => {
       <section className="m-auto flex w-full items-center justify-center bg-black">
         {isLoading && <MovieListTemplate />}
         {!isLoading && topRatedMovies && topRatedMovies.results && (
-          <div className="no-scrollbar flex h-[375px] w-[90%] items-end overflow-x-auto overflow-x-scroll overflow-y-visible">
+          <div className="no-scrollbar flex h-[375px] w-[90%] items-end overflow-x-scroll overflow-y-visible">
             <MovieList movies={top10Movies as Movie[]} isTopTen={true} />
           </div>
         )}
@@ -186,7 +188,7 @@ export const Register = () => {
           <h3 className={"self-start text-2xl font-bold text-white"}>
             Reasons to join
           </h3>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-25 md:gap-2">
             {ADVERTISEMENT.map((item) => (
               <Advertisement
                 key={item.title}
