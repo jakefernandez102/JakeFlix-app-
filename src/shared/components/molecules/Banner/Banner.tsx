@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Movie } from "../../../types";
-import "./Banner.css";
 import { MovieList } from "../../../../modules/ui/components/MovieList/MovieList";
 import Skeleton from "react-loading-skeleton";
 export interface BannerProps {
