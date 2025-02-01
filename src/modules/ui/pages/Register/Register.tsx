@@ -12,7 +12,7 @@ import { Download } from "../../Icons/Download";
 import { Enjoy } from "../../Icons/Enjoy";
 import { Profiles } from "../../Icons/Profiles";
 import { Advertisement } from "../../components/Advertisement";
-import { register } from "../../../../api/auth/auth.api";
+import { register } from "../../../../api";
 
 const ADVERTISEMENT = [
   {
