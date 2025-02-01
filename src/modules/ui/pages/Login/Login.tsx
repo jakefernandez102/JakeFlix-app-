@@ -75,8 +75,8 @@ const Login = () => {
                 },
               ]}
               initialValues={{
-                email: "jakeflix@correo.com",
-                password: "Password",
+                email: "",
+                password: "",
               }}
               mainButtontext="Login"
               hasSecondaryButton={true}
