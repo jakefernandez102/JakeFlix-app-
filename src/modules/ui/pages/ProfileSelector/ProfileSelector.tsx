@@ -72,8 +72,8 @@ export const ProfileSelector = () => {
         type={"button"}
       />
       <h4 className="text-5xl">Who is watching right now?</h4>
-      <div className="flex gap-3">
-        <div className="flex gap-3">
+      <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-10">
           {user?.profiles?.map((profile: UserProfile) => {
             return (
               <Card

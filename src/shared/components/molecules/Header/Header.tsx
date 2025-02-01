@@ -34,7 +34,7 @@ export const Header = () => {
   );
   const navigate = useNavigate();
   return (
-    <div className="flex max-h-[4.2rem] justify-between px-20">
+    <div className="flex max-h-[4.2rem] justify-between lg:px-20">
       <div
         className="flex w-full items-center gap-2"
         onClick={() => navigate("/home")}
